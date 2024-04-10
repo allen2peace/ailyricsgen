@@ -20,6 +20,7 @@ const openai = new OpenAI({
 // export const runtime = 'edge'; // runtime = 'edge'
 
 export async function POST(req: NextRequest) {
+  console.log(`complete call start`)
   // 判断referer
   // Check the referer
   const headers = req.headers
@@ -39,6 +40,7 @@ export async function POST(req: NextRequest) {
   // 判断当日可用次数
   // Determine the available count for the day
   const userId: RedisUserId = await redis.get(token) + ''
+  console.log(`complete api userid==${userId}`)
   if (!userId) {
     const errorText = 'Your account was not found'
     return new StreamingTextResponse(errorText as any);
@@ -49,7 +51,9 @@ export async function POST(req: NextRequest) {
     return new StreamingTextResponse(errorText as any);
   }
 
+  console.log(`complete api remainingInfo==${remainingInfo.userDateRemaining}`)
   const { language, prompt } = await req.json();
+  console.log(`complete api language==${language} prompt==${prompt}`)
   // Ask OpenAI for a streaming completion given the prompt
   // const response = await openai.createChatCompletion({ // runtime = 'edge'
   const response = await openai.chat.completions.create({
@@ -65,6 +69,7 @@ export async function POST(req: NextRequest) {
       },
     ],
   });
+  console.log(`complete api response==${response}`)
   incrAfterChat({ userId, remainingInfo })
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
