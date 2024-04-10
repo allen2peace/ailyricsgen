@@ -19,10 +19,10 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  pages: {
-    signIn: "/auth/login",
-    signOut: '/auth/logout',
-  },
+  // pages: {
+  //   signIn: "/auth/login",
+  //   signOut: '/auth/logout',
+  // },
   providers: [
     GithubProvider({
       clientId: `${process.env.GITHUB_ID}`,
