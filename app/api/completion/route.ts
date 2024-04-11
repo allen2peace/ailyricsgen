@@ -56,23 +56,25 @@ export async function POST(req: NextRequest) {
   console.log(`complete api language==${language} prompt==${prompt}`)
   // Ask OpenAI for a streaming completion given the prompt
   // const response = await openai.createChatCompletion({ // runtime = 'edge'
+  const content = `${process.env.PREFIX_PROMPT}${prompt}. ${process.env.SUFFIX_PROMPT} 
+  ${process.env.USING_CONTENT_FORMATTING} 
+  ${process.env.LANGUAGE_TIP} ${language}. 
+  ${process.env.THANK_YOU}`
+  console.log(`complete api content==${content}`);
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     stream: true,
     messages: [
       {
         role: 'user',
-        content: `${process.env.PREFIX_PROMPT}${prompt}. ${process.env.SUFFIX_PROMPT} 
-        ${process.env.USING_CONTENT_FORMATTING} 
-        ${process.env.LANGUAGE_TIP} ${language}. 
-        ${process.env.THANK_YOU}`
+        content: content
       },
     ],
   });
-  console.log(`complete api response==${response}`)
   incrAfterChat({ userId, remainingInfo })
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
+  console.log(`complete api response==${stream}`)
   // Respond with the stream
   return new StreamingTextResponse(stream);
 }
