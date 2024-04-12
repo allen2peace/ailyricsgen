@@ -15,23 +15,23 @@ const ContactMe = () => {
       >
         <MdEmail className="text-lg" />
       </Link>
-      <Link
+      {/* <Link
         href="https://github.com/weijunext"
         target="_blank"
         rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsGithub className="text-lg" />
-      </Link>
-      <Link
+      </Link> */}
+      {/* <Link
         href="https://twitter.com/weijunext"
         target="_blank"
         rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsTwitterX className="text-lg" />
-      </Link>
-      <Link
+      </Link> */}
+      {/* <Link
         href="https://juejin.cn/user/26044008768029"
         target="_blank"
         rel="noopener norefferer nofollow"
@@ -45,15 +45,15 @@ const ContactMe = () => {
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsWechat className="text-lg" />
-      </Link>
-      <Link
+      </Link> */}
+      {/* <Link
         href="https://www.buymeacoffee.com/weijunext"
         target="_blank"
         rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <SiBuymeacoffee className="text-lg" />
-      </Link>
+      </Link> */}
     </div>
   );
 };

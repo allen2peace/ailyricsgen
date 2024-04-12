@@ -69,14 +69,14 @@ export default async function RootLayout({
           <Toaster />
           <TailwindIndicator />
         </ThemeProvider>
-        {process.env.NODE_ENV === "development" ? (
+        {/* {process.env.NODE_ENV === "development" ? (
           <></>
         ) : (
           <>
             <GoogleAnalytics />
             <BaiDuAnalytics />
           </>
-        )}
+        )} */}
       </body>
     </html>
   );

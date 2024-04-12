@@ -1,9 +1,9 @@
 import { SiteConfig } from "@/types/siteConfig"
 
 const baseSiteConfig = {
-  name: "Smart Excel",
+  name: "AI Rap Song Lyrics",
   description:
-    "Generate the Excel formulas in seconds.",
+    "Generate Rap Song Lyrics in Seconds",
   url: "https://smartexcel.cc",
   ogImage: "https://smartexcel.cc/og.jpg",
   metadataBase: new URL("https://www.smartexcel.cc"),
@@ -14,7 +14,7 @@ const baseSiteConfig = {
       url: "https://weijunext.com",
     }
   ],
-  creator: '@weijunext',
+  creator: 'AI Rap Lyrics Generator',
   themeColor: '#fff',
   icons: {
     icon: "/favicon.ico",

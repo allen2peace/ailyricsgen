@@ -113,7 +113,7 @@ export default function HomePage({
 
   return (
     <>
-      <div
+      {/* <div
         className="mx-auto mt-6 flex items-center justify-center space-x-5"
         style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
       >
@@ -135,13 +135,13 @@ export default function HomePage({
           <Github className="h-5 w-5" />
           <p className="text-sm font-semibold">Star on GitHub</p>
         </a>
-      </div>
-      <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
+      </div> */}
+      <h1 className="text-4xl font-bold text-slate-900">
         {siteConfig.description}
       </h1>
 
       <p className="text-slate-500 my-5">
-        {formatNumber({ value: Number(usage) + currentUses })} Excel formulas
+        {formatNumber({ value: Number(usage) + currentUses })} Song Lyrics
         generated so far.
       </p>
 
@@ -179,7 +179,7 @@ export default function HomePage({
               placeHolder="enter subject"
             />
           </div>
-          <em className=" text-slate-500 font-thin text-center w-full">
+          <em className=" text-slate-400 text-center w-full">
             press enter to add Topics
           </em>
         </div>
@@ -196,7 +196,7 @@ export default function HomePage({
               placeHolder="enter keyword"
             />
           </div>
-          <em className=" text-slate-500 font-thin text-center w-full">
+          <em className=" text-slate-400 text-center w-full">
             press enter to add new Keywords
           </em>
         </div>
@@ -213,7 +213,7 @@ export default function HomePage({
               placeHolder="enter emotions"
             />
           </div>
-          <em className=" text-slate-500 font-thin text-center w-full">
+          <em className=" text-slate-400 text-center w-full">
             press enter to add new Emtions
           </em>
         </div>
@@ -222,7 +222,7 @@ export default function HomePage({
         <div className="flex mt-10 items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
           <p className="text-left font-medium">
-            Describe what Excel formulas you would like.
+            Describe what the song you want is about.
           </p>
         </div>
         <textarea
@@ -230,11 +230,11 @@ export default function HomePage({
           onChange={handleInputChange}
           rows={4}
           className="w-full rounded-md bg-white border border-gray-300 shadow-sm focus:border-black focus:ring-black my-5 px-2 py-1"
-          placeholder={"e.g. Identify gender based on ID card."}
+          placeholder={"e.g. a song about love between young people"}
         />
         <div className="flex mb-5 items-center space-x-3">
           <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
-          <p className="text-left font-medium">Select your language.</p>
+          <p className="text-left font-medium">Select the language you want to output.</p>
         </div>
         <div className="block">
           <DropDown
@@ -307,7 +307,7 @@ export default function HomePage({
                   }
                 </Link>
               ) : (
-                <span>Generate Excel formulas &rarr;</span>
+                <span>Generate Song Lyrics &rarr;</span>
               )}
             </button>
           </>
