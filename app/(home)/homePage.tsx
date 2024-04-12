@@ -3,7 +3,7 @@
 import DropDown, { LanguageType } from "@/components/DropDown";
 import Github from "@/components/icons/GitHub";
 import Twitter from "@/components/icons/Twitter";
-import Subscribe from "@/components/subscribe/Subscribe";
+import { SubmitForm } from "@/components/submit-form";
 import { siteConfig } from "@/config/site";
 import { formatNumber } from "@/lib/data";
 import { UserInfo } from "@/types/user";
@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { TagsInput } from "react-tag-input-component";
 
 interface HomePageProps {
   usage: number;
@@ -35,6 +36,9 @@ export default function HomePage({
   const [remainingCredits, setRemainingCredits] = useState(0);
   const [boostPackRemainingCredits, setBoostPackRemainingCredits] = useState(0);
   const [content, setContent] = useState("");
+  const [topicList, setTopicList] = useState<string[]>([]);
+  const [keywordList, setKeywordList] = useState<string[]>([]);
+  const [emotionList, setEmotionList] = useState<string[]>([]);
   const [language, setLanguage] = useState<LanguageType>("English");
   const answerRef = useRef<null | HTMLDivElement>(null);
 
@@ -49,6 +53,9 @@ export default function HomePage({
     body: {
       language,
       prompt: content,
+      topic: JSON.stringify(topicList),
+      keyword: JSON.stringify(keywordList),
+      emotion: JSON.stringify(emotionList),
     },
     headers: {
       token: user?.accessToken || "",
@@ -73,8 +80,27 @@ export default function HomePage({
     handleSubmit(e);
   };
 
+  const onSubmitSubject = (e: FormEvent<HTMLFormElement>) => {
+    console.log("onSubmitSubject==", e);
+    // 阻止表单默认提交行为
+    e.preventDefault();
+
+    // 通过类型断言告诉 TypeScript 返回的是一个 HTMLInputElement 类型
+    const input = (e.target as HTMLFormElement).elements.namedItem(
+      "prompt"
+    ) as HTMLInputElement;
+
+    // 获取 input 元素的值
+    const value = input.value;
+    // 处理 input 元素的值
+    // subjectList.push(value);
+    console.log(`Input value: ${value}, ${topicList}`);
+    setTopicList(topicList);
+  };
+
   const answer = completion;
 
+  useEffect(() => {}, [topicList]);
   useEffect(() => {
     if (currentUses <= remaining) {
       setRemainingCredits(remaining - currentUses);
@@ -115,10 +141,84 @@ export default function HomePage({
         {siteConfig.description}
       </h1>
 
-      <p className="text-slate-500 mt-5">
+      <p className="text-slate-500 my-5">
         {formatNumber({ value: Number(usage) + currentUses })} Excel formulas
         generated so far.
       </p>
+
+      {/* <div className="flex flex-row my-4 ">
+        {subjectList.map((subject) => (
+          <div className="flex shadow-slate-200 shadow rounded-xl h-10 my-1 ml-1 text-black bg-slate-100 py-2 pl-2 justify-center text-center items-center">
+            {subject}
+            <Image
+              alt="cancel"
+              src="/close-icon.svg"
+              className="w-8 h-8 py-1"
+              width={16}
+              height={16}
+            />
+          </div>
+        ))}
+      </div>
+
+      <SubmitForm
+        initialPrompt="Enter topic and hit Enter..."
+        formAction={onSubmitSubject}
+      /> */}
+
+      <div className="flex flex-col items-start justify-start">
+        <div className=" w-full flex flex-col items-start justify-start my-5">
+          <div>
+            Enter up to 3 overarching topics. These can be themes, concepts, and
+            stories.
+          </div>
+          <div className="w-full mt-2">
+            <TagsInput
+              value={topicList}
+              onChange={setTopicList}
+              name="subject"
+              placeHolder="enter subject"
+            />
+          </div>
+          <em className=" text-slate-500 font-thin text-center w-full">
+            press enter to add Topics
+          </em>
+        </div>
+
+        <div className=" w-full flex flex-col items-start justify-start my-5">
+          <div>
+            Enter up to 10 words or phrases you want to appear in the song.
+          </div>
+          <div className="w-full mt-2">
+            <TagsInput
+              value={keywordList}
+              onChange={setKeywordList}
+              name="keyword"
+              placeHolder="enter keyword"
+            />
+          </div>
+          <em className=" text-slate-500 font-thin text-center w-full">
+            press enter to add new Keywords
+          </em>
+        </div>
+
+        <div className=" w-full flex flex-col items-start justify-start my-5">
+          <div>
+            Enter up to 3 emotions describing the emotional journey of the song.
+          </div>
+          <div className="w-full mt-2">
+            <TagsInput
+              value={emotionList}
+              onChange={setEmotionList}
+              name="emotion"
+              placeHolder="enter emotions"
+            />
+          </div>
+          <em className=" text-slate-500 font-thin text-center w-full">
+            press enter to add new Emtions
+          </em>
+        </div>
+      </div>
       <form className="max-w-xl w-full" onSubmit={onSubmit}>
         <div className="flex mt-10 items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
@@ -255,7 +355,7 @@ export default function HomePage({
       </output>
 
       {/* subscribe */}
-      <Subscribe user={user} />
+      {/* <Subscribe user={user} /> */}
     </>
   );
 }

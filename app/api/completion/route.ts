@@ -52,14 +52,21 @@ export async function POST(req: NextRequest) {
   }
 
   console.log(`complete api remainingInfo==${remainingInfo.userDateRemaining}`)
-  const { language, prompt } = await req.json();
-  console.log(`complete api language==${language} prompt==${prompt}`)
+  const { language, prompt, topic, keyword, emotion } = await req.json();
+  
+  //convert to string array
+  const topicString = JSON.parse(topic).join(' and ');
+  const keywordString = JSON.parse(keyword).join(' and ');
+  const emotionString = JSON.parse(emotion).join(' and ');
+  console.log(`complete api language==${language} prompt==${prompt}, topic==${topicString}, keyword==${keywordString}, emotion==${emotionString}`)
   // Ask OpenAI for a streaming completion given the prompt
   // const response = await openai.createChatCompletion({ // runtime = 'edge'
-  const content = `${process.env.PREFIX_PROMPT}${prompt}. ${process.env.SUFFIX_PROMPT} 
-  ${process.env.USING_CONTENT_FORMATTING} 
-  ${process.env.LANGUAGE_TIP} ${language}. 
-  ${process.env.THANK_YOU}`
+  const content =
+    `${process.env.PREFIX_PROMPT} ${prompt}.` +
+    `\n${process.env.TOPIC_PROMPT} ${topicString}.` +
+    `\n${process.env.KEYWORD_PROMPT} ${keywordString}.` +
+    `\n${process.env.EMOTION_PROMPT} ${emotionString}.` +
+    `\n${process.env.LANGUAGE_TIP} ${language}.`;
   console.log(`complete api content==${content}`);
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
