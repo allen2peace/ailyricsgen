@@ -3,7 +3,6 @@
 import DropDown, { LanguageType } from "@/components/DropDown";
 import Github from "@/components/icons/GitHub";
 import Twitter from "@/components/icons/Twitter";
-import { SubmitForm } from "@/components/submit-form";
 import { siteConfig } from "@/config/site";
 import { formatNumber } from "@/lib/data";
 import { UserInfo } from "@/types/user";
