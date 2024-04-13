@@ -35,6 +35,7 @@ export default function HomePage({
   const [remainingCredits, setRemainingCredits] = useState(0);
   const [boostPackRemainingCredits, setBoostPackRemainingCredits] = useState(0);
   const [content, setContent] = useState("");
+  const [error, setError] = useState(false);
   const [topicList, setTopicList] = useState<string[]>([]);
   const [keywordList, setKeywordList] = useState<string[]>([]);
   const [emotionList, setEmotionList] = useState<string[]>([]);
@@ -75,6 +76,12 @@ export default function HomePage({
   );
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    if (!content) {
+      e.preventDefault();
+      setError(true);
+      return;
+    }
+    setError(false);
     complete(content);
     handleSubmit(e);
   };
@@ -136,14 +143,14 @@ export default function HomePage({
           <p className="text-sm font-semibold">Star on GitHub</p>
         </a>
       </div> */}
-      <h1 className="text-4xl font-bold text-slate-900">
+      <h1 className="my-5 text-4xl font-bold text-slate-900">
         {siteConfig.description}
       </h1>
 
-      <p className="text-slate-500 my-5">
+      {/* <p className="text-slate-500 my-5">
         {formatNumber({ value: Number(usage) + currentUses })} Song Lyrics
         generated so far.
-      </p>
+      </p> */}
 
       {/* <div className="flex flex-row my-4 ">
         {subjectList.map((subject) => (
@@ -166,12 +173,12 @@ export default function HomePage({
       /> */}
 
       <div className="flex flex-col items-start justify-start">
-        <div className=" w-full flex flex-col items-start justify-start my-5">
+        <div className=" my-5 flex w-full flex-col items-start justify-start">
           <div>
             Enter up to 3 overarching topics. These can be themes, concepts, and
             stories.
           </div>
-          <div className="w-full mt-2">
+          <div className="mt-2 w-full">
             <TagsInput
               value={topicList}
               onChange={setTopicList}
@@ -179,16 +186,16 @@ export default function HomePage({
               placeHolder="enter subject"
             />
           </div>
-          <em className=" text-slate-400 text-center w-full">
+          <em className=" w-full text-center text-slate-400">
             press enter to add Topics
           </em>
         </div>
 
-        <div className=" w-full flex flex-col items-start justify-start my-5">
+        <div className=" my-5 flex w-full flex-col items-start justify-start">
           <div>
             Enter up to 10 words or phrases you want to appear in the song.
           </div>
-          <div className="w-full mt-2">
+          <div className="mt-2 w-full">
             <TagsInput
               value={keywordList}
               onChange={setKeywordList}
@@ -196,16 +203,16 @@ export default function HomePage({
               placeHolder="enter keyword"
             />
           </div>
-          <em className=" text-slate-400 text-center w-full">
+          <em className=" w-full text-center text-slate-400">
             press enter to add new Keywords
           </em>
         </div>
 
-        <div className=" w-full flex flex-col items-start justify-start my-5">
+        <div className=" my-5 flex w-full flex-col items-start justify-start">
           <div>
             Enter up to 3 emotions describing the emotional journey of the song.
           </div>
-          <div className="w-full mt-2">
+          <div className="mt-2 w-full">
             <TagsInput
               value={emotionList}
               onChange={setEmotionList}
@@ -213,13 +220,13 @@ export default function HomePage({
               placeHolder="enter emotions"
             />
           </div>
-          <em className=" text-slate-400 text-center w-full">
+          <em className=" w-full text-center text-slate-400">
             press enter to add new Emtions
           </em>
         </div>
       </div>
-      <form className="max-w-xl w-full" onSubmit={onSubmit}>
-        <div className="flex mt-10 items-center space-x-3">
+      <form className="w-full max-w-xl" onSubmit={onSubmit}>
+        <div className="mt-10 flex items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
           <p className="text-left font-medium">
             Describe what the song you want is about.
@@ -229,12 +236,15 @@ export default function HomePage({
           value={content}
           onChange={handleInputChange}
           rows={4}
-          className="w-full rounded-md bg-white border border-gray-300 shadow-sm focus:border-black focus:ring-black my-5 px-2 py-1"
+          className="w-full rounded-md border border-gray-300 bg-white px-2 py-1 shadow-sm focus:border-black mt-5 focus:ring-black"
           placeholder={"e.g. a song about love between young people"}
         />
-        <div className="flex mb-5 items-center space-x-3">
+        {error && (<em className=" flex text-start text-red-500">Please enter the content of song</em>)}
+        <div className="my-5 flex items-center space-x-3">
           <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
-          <p className="text-left font-medium">Select the language you want to output.</p>
+          <p className="text-left font-medium">
+            Select the language you want to output.
+          </p>
         </div>
         <div className="block">
           <DropDown
@@ -243,10 +253,10 @@ export default function HomePage({
           />
         </div>
 
-        {user ? (
-          <>
-            <div className="text-left mt-6 mb-2 text-gray-500 text-sm">
-              <div>
+        {/* {user ? ( */}
+        <>
+          <div className="mb-2 mt-6 text-left text-sm text-gray-500">
+            {/* <div>
                 {remainingCredits <= 0 ? 0 : remainingCredits} credits remaining
                 <>
                   {membershipExpire ? (
@@ -258,87 +268,83 @@ export default function HomePage({
                     <></>
                   )}
                 </>
-              </div>
-              {boostPackExpire ? (
+              </div> */}
+            {/* {boostPackExpire ? (
                 <div>
                   {boostPackRemainingCredits} boost pack credits (Expires on:{" "}
                   {dayjs(boostPackExpire * 1000).format("YYYY-MM-DD HH:mm")})
                 </div>
               ) : (
                 <></>
-              )}
-            </div>
+              )} */}
+          </div>
 
-            <button
-              className="bg-black rounded-xl text-white font-medium px-4 py-2 hover:bg-black/80 w-full"
-              type="submit"
-              disabled={
-                isLoading || remainingCredits + boostPackRemainingCredits <= 0
-              }
-              style={{
-                cursor:
-                  isLoading || remainingCredits + boostPackRemainingCredits <= 0
-                    ? "not-allowed"
-                    : "",
-              }}
-            >
-              {isLoading ? (
-                <span className="loading">
-                  <span style={{ backgroundColor: "white" }} />
-                  <span style={{ backgroundColor: "white" }} />
-                  <span style={{ backgroundColor: "white" }} />
-                </span>
-              ) : remainingCredits + boostPackRemainingCredits <= 0 ? (
-                <Link
-                  href={
-                    user.role === 0 ? "/#subscription-card" : "/#bootsPack-card"
-                  }
-                >
-                  {
-                    /**
-                     * 普通用户的引导文字：引导购买会员
-                     * 会员用户的引导文字：引导购买加油包
-                     * Prompt for regular users: Guide to purchase membership
-                     * Prompt for member users: Guide to purchase a boost package
-                     */
-                    user.role === 0
-                      ? "Become a member to enjoy 500 credits every day."
-                      : "Purchase a Boost Pack to get more credits right now."
-                  }
-                </Link>
-              ) : (
-                <span>Generate Song Lyrics &rarr;</span>
-              )}
-            </button>
-          </>
-        ) : (
-          <Link href="/login">
-            <button className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full">
-              <span>Available after logging in &rarr;</span>
-            </button>
-          </Link>
-        )}
+          <button
+            className="w-full rounded-xl bg-black px-4 py-2 font-medium text-white hover:bg-black/80"
+            type="submit"
+            disabled={isLoading}
+            style={{
+              cursor: isLoading ? "not-allowed" : "",
+            }}
+          >
+            {isLoading ? (
+              <span className="loading">
+                <span style={{ backgroundColor: "white" }} />
+                <span style={{ backgroundColor: "white" }} />
+                <span style={{ backgroundColor: "white" }} />
+              </span>
+            ) : (
+              // remainingCredits + boostPackRemainingCredits <= 0 ? (
+              //   <Link
+              //     href={
+              //       user.role === 0 ? "/#subscription-card" : "/#bootsPack-card"
+              //     }
+              //   >
+              //     {
+              //       /**
+              //        * 普通用户的引导文字：引导购买会员
+              //        * 会员用户的引导文字：引导购买加油包
+              //        * Prompt for regular users: Guide to purchase membership
+              //        * Prompt for member users: Guide to purchase a boost package
+              //        */
+              //       user.role === 0
+              //         ? "Become a member to enjoy 500 credits every day."
+              //         : "Purchase a Boost Pack to get more credits right now."
+              //     }
+              //   </Link>
+              // ) :
+              <span>Generate Song Lyrics &rarr;</span>
+            )}
+          </button>
+        </>
+        {/* // ) : (
+        //   <Link href="/login">
+        //     <button className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full">
+        //       <span>Available after logging in &rarr;</span>
+        //     </button>
+        //   </Link>
+        // )} */}
       </form>
       <Toaster
         position="top-center"
         reverseOrder={false}
         toastOptions={{ duration: 2000 }}
       />
-      <hr className="h-px bg-gray-700 border-1" />
-      <output className="space-y-10 my-10">
+      <hr className="border-1 h-px bg-gray-700" />
+      <output className="my-10 space-y-10">
         {answer && (
           <>
             <div>
               <h2
-                className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto"
+                className="mx-auto text-3xl font-bold text-slate-900 sm:text-4xl"
                 ref={answerRef}
               >
                 The formula you need
               </h2>
             </div>
-            <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
+            <div className="mx-auto flex max-w-xl flex-col items-center justify-center space-y-8">
               <div
-                className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
+                className="cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100"
                 onClick={() => {
                   navigator.clipboard.writeText(answer);
                   toast("Copied", {

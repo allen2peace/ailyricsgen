@@ -31,27 +31,27 @@ export async function POST(req: NextRequest) {
   }
   // 判断token是否存在
   // Verify if token exists
-  const token = headers.get('token')
-  if (!token) {
-    const errorText = 'Token validation failed. Please login again.'
-    return new StreamingTextResponse(errorText as any);
-  }
+  // const token = headers.get('token')
+  // if (!token) {
+  //   const errorText = 'Token validation failed. Please login again.'
+  //   return new StreamingTextResponse(errorText as any);
+  // }
 
   // 判断当日可用次数
   // Determine the available count for the day
-  const userId: RedisUserId = await redis.get(token) + ''
-  console.log(`complete api userid==${userId}`)
-  if (!userId) {
-    const errorText = 'Your account was not found'
-    return new StreamingTextResponse(errorText as any);
-  }
-  const remainingInfo: DateRemaining = await getUserDateRemaining({ userId })
-  if (remainingInfo.userDateRemaining <= 0) {
-    const errorText = '0 credit remaining today.'
-    return new StreamingTextResponse(errorText as any);
-  }
+  // const userId: RedisUserId = await redis.get(token) + ''
+  // console.log(`complete api userid==${userId}`)
+  // if (!userId) {
+  //   const errorText = 'Your account was not found'
+  //   return new StreamingTextResponse(errorText as any);
+  // }
+  // const remainingInfo: DateRemaining = await getUserDateRemaining({ userId })
+  // if (remainingInfo.userDateRemaining <= 0) {
+  //   const errorText = '0 credit remaining today.'
+  //   return new StreamingTextResponse(errorText as any);
+  // }
 
-  console.log(`complete api remainingInfo==${remainingInfo.userDateRemaining}`)
+  // console.log(`complete api remainingInfo==${remainingInfo.userDateRemaining}`)
   const { language, prompt, topic, keyword, emotion } = await req.json();
   
   //convert to string array
@@ -61,12 +61,20 @@ export async function POST(req: NextRequest) {
   console.log(`complete api language==${language} prompt==${prompt}, topic==${topicString}, keyword==${keywordString}, emotion==${emotionString}`)
   // Ask OpenAI for a streaming completion given the prompt
   // const response = await openai.createChatCompletion({ // runtime = 'edge'
-  const content =
-    `${process.env.PREFIX_PROMPT} ${prompt}.` +
-    `\n${process.env.TOPIC_PROMPT} ${topicString}.` +
-    `\n${process.env.KEYWORD_PROMPT} ${keywordString}.` +
-    `\n${process.env.EMOTION_PROMPT} ${emotionString}.` +
-    `\n${process.env.LANGUAGE_TIP} ${language}.`;
+  var content = `${process.env.PREFIX_PROMPT} ${prompt}.`;
+
+  //topicString不为空再拼接上
+  if (topicString) {
+    content += `\n${process.env.TOPIC_PROMPT} ${topicString}.`;
+  }
+  if (keywordString) {
+    content += `\n${process.env.KEYWORD_PROMPT} ${topicString}.`;
+  }
+  if (emotionString) {
+    content += `\n${process.env.EMOTION_PROMPT} ${topicString}.`;
+  }
+  content += `\n${process.env.LANGUAGE_TIP} ${language}.`;
+
   console.log(`complete api content==${content}`);
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
@@ -78,7 +86,7 @@ export async function POST(req: NextRequest) {
       },
     ],
   });
-  incrAfterChat({ userId, remainingInfo })
+  // incrAfterChat({ userId, remainingInfo })
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
   console.log(`complete api response==${stream}`)

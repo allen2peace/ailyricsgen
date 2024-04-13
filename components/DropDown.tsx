@@ -10,14 +10,39 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export type LanguageType = "中文" | "English";
+export type LanguageType =
+    "English"
+  | "Español"
+  | "Français"
+  | "Deutsch"
+  | "Italiano"
+  | "Português"
+  | "Pусский"
+  | "हिन्दी"
+  | "Tiếng Việ"
+  | "한국어"
+  | "日本語"
+  | "中文";
 
 interface DropDownProps {
   language: LanguageType;
   setLanguage: (language: LanguageType) => void;
 }
 
-let languages: LanguageType[] = ["中文", "English"];
+let languages: LanguageType[] = [
+  "English",
+  "Español",
+  "Français",
+  "Deutsch",
+  "Italiano",
+  "Português",
+  "Pусский",
+  "हिन्दी",
+  "Tiếng Việ",
+  "한국어",
+  "日本語",
+  "中文",
+];
 
 export default function DropDown({ language, setLanguage }: DropDownProps) {
   return (

@@ -13,15 +13,15 @@ export default function Header({ user }: { user?: UserInfo }) {
       <header className="flex justify-between items-center w-full mt-1 border-b-1 pb-0 sm:px-4 px-2">
         <MainHeader />
         <div>
-          <UserAccountHeader
+          {/* <UserAccountHeader
             user={{
               username: user?.username || "",
               avatar: user?.avatar || "",
               email: user?.email || "",
               role: user?.role || 0,
               membershipExpire: user?.membershipExpire,
-            }}
-          />
+            }} */}
+          {/* /> */}
         </div>
       </header>
     </div>

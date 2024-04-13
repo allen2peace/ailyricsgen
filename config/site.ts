@@ -4,26 +4,26 @@ const baseSiteConfig = {
   name: "AI Rap Song Lyrics",
   description:
     "Generate Rap Song Lyrics in Seconds",
-  url: "https://smartexcel.cc",
-  ogImage: "https://smartexcel.cc/og.jpg",
+  url: "",
+  ogImage: "",
   metadataBase: new URL("https://www.smartexcel.cc"),
-  keywords: ["SmartExcel", "ChatGPT", "Excel formulas", "Excel AI", "文心一言", "智谱"],
+  keywords: ["rap lyrics generator", "online rap lyrics generator", "chicago freestyle lyrics", "rap battle lyrics", "rap battle lyrics", "rap songs motivational"],
   authors: [
     {
-      name: "weijunext",
-      url: "https://weijunext.com",
+      name: "",
+      url: "",
     }
   ],
   creator: 'AI Rap Lyrics Generator',
   themeColor: '#fff',
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   links: {
-    twitter: "https://twitter.com/weijunext",
-    github: "https://github.com/weijunext/smartexcel",
+    twitter: "",
+    github: "",
   },
 }
 
