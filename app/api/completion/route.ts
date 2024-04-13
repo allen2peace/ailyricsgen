@@ -20,11 +20,11 @@ const openai = new OpenAI({
 // export const runtime = 'edge'; // runtime = 'edge'
 
 export async function POST(req: NextRequest) {
-  console.log(`complete call start`)
   // 判断referer
   // Check the referer
   const headers = req.headers
   const referer: string | null = headers.get('referer')
+  console.log(`complete call start referer== ${referer}`)
   if (!referer || !referer.includes(process.env.REFERER_MAIN_URL as string)) {
     const errorText = 'Invalid referer.'
     return new StreamingTextResponse(errorText as any);
