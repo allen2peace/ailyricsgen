@@ -43,6 +43,7 @@ const Footer = () => {
             return (
               <div key={value.code}>
                 <a
+                  rel ="alternate"
                   href={value.code}
                   hrefLang={value.code}
                   className="mx-3 my-1 font-light text-white"
