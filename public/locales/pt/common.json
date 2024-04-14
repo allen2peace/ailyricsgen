@@ -1,0 +1,20 @@
+{
+  "title_header": "Gerador de Letras de Rap com Inteligência Artificial",
+  "title_website": "Gere Letras de Músicas de Rap em Segundos",
+  "title_topic": "Digite até 3 tópicos principais. Estes podem ser temas, conceitos e histórias",
+  "title_keyword": "Digite até 10 palavras ou frases que deseja que apareçam na música",
+  "title_emotion": "Digite até 3 emoções descrevendo a jornada emocional da música",
+  "title_content": "Descreva sobre o que deseja que a música trate",
+  "title_language_output": "Selecione o idioma de saída desejado",
+  "title_output": "As letras que você deseja",
+  "button_generate": "Gerar Letras",
+  "tip_topic": "Pressione Enter para adicionar novos Tópicos",
+  "tip_keyword": "Pressione Enter para adicionar novas Palavras-chave",
+  "tip_emotion": "Pressione Enter para adicionar novas Emoções",
+  "tip_content_error": "Por favor, insira o conteúdo da música",
+  "tip_toast_copied": "Copiado",
+  "hint_topic": "Digite os tópicos",
+  "hint_keyword": "Digite as palavras-chave",
+  "hint_emotion": "Digite as emoções",
+  "hint_content": "por exemplo, uma música sobre o amor entre jovens"
+}

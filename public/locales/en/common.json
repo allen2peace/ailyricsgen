@@ -1,0 +1,20 @@
+{
+  "title_header": "AI Rap Lyrics Generator",
+  "title_website": "Generate Rap Song Lyrics in Seconds",
+  "title_topic": "Enter up to 3 overarching topics. These can be themes, concepts, and stories",
+  "title_keyword": "Enter up to 10 words or phrases you want to appear in the song",
+  "title_emotion": "Enter up to 3 emotions describing the emotional journey of the song",
+  "title_content": "Describe what you want the song to be about",
+  "title_language_output": "Select the language you want to output",
+  "title_output": "The lyrics you want",
+  "button_generate": "Generate Sone Lyrics",
+  "tip_topic": "press enter to add new Topics",
+  "tip_keyword": "press enter to add new Keywords",
+  "tip_emotion": "press enter to add new Emtions",
+  "tip_content_error": "Please enter the content of song",
+  "tip_toast_copied": "Copied",
+  "hint_topic": "enter topics",
+  "hint_keyword": "enter keywords",
+  "hint_emotion": "enter emotions",
+  "hint_content": "e.g. a song about love between young people"
+}

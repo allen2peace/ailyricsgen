@@ -1,0 +1,20 @@
+{
+  "title_header": "Generador de Letras de Rap de IA",
+  "title_website": "Genera Letras de Canciones de Rap en Segundos",
+  "title_topic": "Ingrese hasta 3 temas principales. Estos pueden ser temas, conceptos e historias",
+  "title_keyword": "Ingrese hasta 10 palabras o frases que desee que aparezcan en la canción",
+  "title_emotion": "Ingrese hasta 3 emociones que describan el viaje emocional de la canción",
+  "title_content": "Describa sobre qué desea que trate la canción",
+  "title_language_output": "Seleccione el idioma de salida que desee",
+  "title_output": "Las letras que desea",
+  "button_generate": "Generar Letras",
+  "tip_topic": "presione Enter para agregar nuevos Temas",
+  "tip_keyword": "presione Enter para agregar nuevas Palabras Clave",
+  "tip_emotion": "presione Enter para agregar nuevas Emociones",
+  "tip_content_error": "Por favor, ingrese el contenido de la canción",
+  "tip_toast_copied": "Copiado",
+  "hint_topic": "ingrese temas",
+  "hint_keyword": "ingrese palabras clave",
+  "hint_emotion": "ingrese emociones",
+  "hint_content": "por ejemplo, una canción sobre el amor entre jóvenes"
+}

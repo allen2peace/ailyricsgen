@@ -1,0 +1,20 @@
+{
+  "title_header": "AI Rap Textgenerator",
+  "title_website": "Generiere Rap-Sonstexte in Sekundenschnelle",
+  "title_topic": "Gib bis zu 3 übergreifende Themen ein. Diese können Themen, Konzepte und Geschichten sein",
+  "title_keyword": "Gib bis zu 10 Wörter oder Phrasen ein, die im Lied erscheinen sollen",
+  "title_emotion": "Gib bis zu 3 Emotionen ein, die die emotionale Reise des Liedes beschreiben",
+  "title_content": "Beschreibe, worum es in dem Lied gehen soll",
+  "title_language_output": "Wähle die gewünschte Ausgabesprache",
+  "title_output": "Die Texte, die du willst",
+  "button_generate": "Texte generieren",
+  "tip_topic": "Drücke Enter, um neue Themen hinzuzufügen",
+  "tip_keyword": "Drücke Enter, um neue Schlüsselwörter hinzuzufügen",
+  "tip_emotion": "Drücke Enter, um neue Emotionen hinzuzufügen",
+  "tip_content_error": "Bitte gib den Inhalt des Liedes ein",
+  "tip_toast_copied": "Kopiert",
+  "hint_topic": "Themen eingeben",
+  "hint_keyword": "Schlüsselwörter eingeben",
+  "hint_emotion": "Emotionen eingeben",
+  "hint_content": "zum Beispiel ein Lied über die Liebe zwischen jungen Menschen"
+}

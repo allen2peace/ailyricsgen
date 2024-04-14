@@ -1,0 +1,20 @@
+{
+  "title_header": "AI 说唱歌词生成器",
+  "title_website": "在几秒钟内生成说唱歌曲歌词",
+  "title_topic": "输入最多3个主题。这些可以是主题、概念和故事",
+  "title_keyword": "输入最多10个你希望在歌曲中出现的词语或短语",
+  "title_emotion": "输入最多3个描述歌曲情感旅程的情绪",
+  "title_content": "描述你希望歌曲的内容",
+  "title_language_output": "选择您要输出的语言",
+  "title_output": "您想要的歌词",
+  "button_generate": "生成歌词",
+  "tip_topic": "按回车键添加新主题",
+  "tip_keyword": "按回车键添加新关键词",
+  "tip_emotion": "按回车键添加新情感",
+  "tip_content_error": "请输入歌曲内容",
+  "tip_toast_copied": "已复制",
+  "hint_topic": "输入主题",
+  "hint_keyword": "输入关键词",
+  "hint_emotion": "输入情感",
+  "hint_content": "例如，一首关于年轻人之间爱情的歌曲"
+}

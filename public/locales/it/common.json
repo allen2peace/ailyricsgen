@@ -1,0 +1,20 @@
+{
+  "title_header": "Generatore di Testi Rap AI",
+  "title_website": "Genera Testi di Canzoni Rap in pochi secondi",
+  "title_topic": "Inserisci fino a 3 argomenti principali. Possono essere temi, concetti e storie",
+  "title_keyword": "Inserisci fino a 10 parole o frasi che vuoi che compaiano nella canzone",
+  "title_emotion": "Inserisci fino a 3 emozioni che descrivono il percorso emotivo della canzone",
+  "title_content": "Descrivi di cosa vuoi che parli la canzone",
+  "title_language_output": "Seleziona la lingua in cui vuoi l'output",
+  "title_output": "I testi che vuoi",
+  "button_generate": "Genera Testi",
+  "tip_topic": "Premi Invio per aggiungere nuovi Argomenti",
+  "tip_keyword": "Premi Invio per aggiungere nuove Parole chiave",
+  "tip_emotion": "Premi Invio per aggiungere nuove Emozioni",
+  "tip_content_error": "Inserisci il contenuto della canzone",
+  "tip_toast_copied": "Copiato",
+  "hint_topic": "Inserisci argomenti",
+  "hint_keyword": "Inserisci parole chiave",
+  "hint_emotion": "Inserisci emozioni",
+  "hint_content": "per esempio, una canzone sull'amore tra giovani"
+}

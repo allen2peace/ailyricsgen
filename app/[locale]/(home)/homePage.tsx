@@ -13,6 +13,7 @@ import Link from "next/link";
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { TagsInput } from "react-tag-input-component";
+import { useTranslations, useLocale } from "next-intl";
 
 interface HomePageProps {
   usage: number;
@@ -41,6 +42,9 @@ export default function HomePage({
   const [emotionList, setEmotionList] = useState<string[]>([]);
   const [language, setLanguage] = useState<LanguageType>("English");
   const answerRef = useRef<null | HTMLDivElement>(null);
+
+  const locale = useLocale();
+  const t = useTranslations();
 
   const scrollToAnswer = () => {
     if (answerRef.current !== null) {
@@ -144,7 +148,7 @@ export default function HomePage({
         </a>
       </div> */}
       <h1 className="my-5 text-4xl font-bold text-slate-900">
-        {siteConfig.description}
+        {t('title_website')}
       </h1>
 
       {/* <p className="text-slate-500 my-5">
@@ -175,53 +179,52 @@ export default function HomePage({
       <div className="flex flex-col items-start justify-start">
         <div className=" my-5 flex w-full flex-col items-start justify-start">
           <div>
-            Enter up to 3 overarching topics. These can be themes, concepts, and
-            stories.
+            {t('title_topic')}
           </div>
           <div className="mt-2 w-full">
             <TagsInput
               value={topicList}
               onChange={setTopicList}
-              name="subject"
-              placeHolder="enter subject"
+              name="topic"
+              placeHolder={t('hint_topic')}
             />
           </div>
           <em className=" w-full text-center text-slate-400">
-            press enter to add Topics
+          {t('tip_topic')}
           </em>
         </div>
 
         <div className=" my-5 flex w-full flex-col items-start justify-start">
           <div>
-            Enter up to 10 words or phrases you want to appear in the song.
+          {t('title_keyword')}
           </div>
           <div className="mt-2 w-full">
             <TagsInput
               value={keywordList}
               onChange={setKeywordList}
               name="keyword"
-              placeHolder="enter keyword"
+              placeHolder={t('hint_keyword')}
             />
           </div>
           <em className=" w-full text-center text-slate-400">
-            press enter to add new Keywords
+          {t('tip_keyword')}
           </em>
         </div>
 
         <div className=" my-5 flex w-full flex-col items-start justify-start">
           <div>
-            Enter up to 3 emotions describing the emotional journey of the song.
+          {t('title_emotion')}
           </div>
           <div className="mt-2 w-full">
             <TagsInput
               value={emotionList}
               onChange={setEmotionList}
               name="emotion"
-              placeHolder="enter emotions"
+              placeHolder={t('hint_emotion')}
             />
           </div>
           <em className=" w-full text-center text-slate-400">
-            press enter to add new Emtions
+          {t('tip_emotion')}
           </em>
         </div>
       </div>
@@ -229,21 +232,25 @@ export default function HomePage({
         <div className="mt-10 flex items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
           <p className="text-left font-medium">
-            Describe what the song you want is about.
+          {t('title_content')}
           </p>
         </div>
         <textarea
           value={content}
           onChange={handleInputChange}
           rows={4}
-          className="w-full rounded-md border border-gray-300 bg-white px-2 py-1 shadow-sm focus:border-black mt-5 focus:ring-black"
-          placeholder={"e.g. a song about love between young people"}
+          className="mt-5 w-full rounded-md border border-gray-300 bg-white px-2 py-1 shadow-sm focus:border-black focus:ring-black"
+          placeholder={t('hint_content')}
         />
-        {error && (<em className=" flex text-start text-red-500">Please enter the content of song</em>)}
+        {error && (
+          <em className=" flex text-start text-red-500">
+            {t('tip_content_error')}
+          </em>
+        )}
         <div className="my-5 flex items-center space-x-3">
           <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
           <p className="text-left font-medium">
-            Select the language you want to output.
+            {t('title_language_output')}
           </p>
         </div>
         <div className="block">
@@ -313,7 +320,7 @@ export default function HomePage({
               //     }
               //   </Link>
               // ) :
-              <span>Generate Song Lyrics &rarr;</span>
+              <span>{t('button_generate')} &rarr;</span>
             )}
           </button>
         </>
@@ -339,7 +346,7 @@ export default function HomePage({
                 className="mx-auto text-3xl font-bold text-slate-900 sm:text-4xl"
                 ref={answerRef}
               >
-                The formula you need
+                {t('title_output')}
               </h2>
             </div>
             <div className="mx-auto flex max-w-xl flex-col items-center justify-center space-y-8">
@@ -347,7 +354,7 @@ export default function HomePage({
                 className="cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100"
                 onClick={() => {
                   navigator.clipboard.writeText(answer);
-                  toast("Copied", {
+                  toast(t('tip_toast_copied'), {
                     icon: "✂️",
                   });
                 }}

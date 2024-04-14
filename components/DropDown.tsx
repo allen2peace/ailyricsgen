@@ -5,13 +5,16 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { localeItems } from "@/navigation";
+import local from "next/font/local";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export type LanguageType =
-    "English"
+  | "English"
   | "Español"
   | "Français"
   | "Deutsch"
@@ -22,7 +25,7 @@ export type LanguageType =
   | "Tiếng Việ"
   | "한국어"
   | "日本語"
-  | "中文";
+  | "中文(简体)";
 
 interface DropDownProps {
   language: LanguageType;
@@ -41,21 +44,30 @@ let languages: LanguageType[] = [
   "Tiếng Việ",
   "한국어",
   "日本語",
-  "中文",
+  "中文(简体)",
 ];
 
 export default function DropDown({ language, setLanguage }: DropDownProps) {
+  const locale = useLocale();
+  const findItem = languages.find(
+    (lang) => lang === localeItems.find((item) => item.code === locale)?.name
+  );
+  // console.log(`locale== ${locale}, findItem== ${findItem}`);
+  if (findItem) {
+    language = findItem;
+  }
+  setLanguage(language)
   return (
-    <Menu as="div" className="relative block text-left w-full">
+    <Menu as="div" className="relative block w-full text-left">
       <div>
-        <Menu.Button className="inline-flex w-full justify-between items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
+        <Menu.Button className="inline-flex w-full items-center justify-between rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
           {language}
           <ChevronUpIcon
-            className="-mr-1 ml-2 h-5 w-5 ui-open:hidden"
+            className="ui-open:hidden -mr-1 ml-2 h-5 w-5"
             aria-hidden="true"
           />
           <ChevronDownIcon
-            className="-mr-1 ml-2 h-5 w-5 hidden ui-open:block"
+            className="ui-open:block -mr-1 ml-2 hidden h-5 w-5"
             aria-hidden="true"
           />
         </Menu.Button>
@@ -83,12 +95,12 @@ export default function DropDown({ language, setLanguage }: DropDownProps) {
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       language === languageItem ? "bg-gray-200" : "",
-                      "px-4 py-2 text-sm w-full text-left flex items-center space-x-2 justify-between"
+                      "flex w-full items-center justify-between space-x-2 px-4 py-2 text-left text-sm"
                     )}
                   >
                     <span>{languageItem}</span>
                     {language === languageItem ? (
-                      <CheckIcon className="w-4 h-4 text-bold" />
+                      <CheckIcon className="text-bold h-4 w-4" />
                     ) : null}
                   </button>
                 )}

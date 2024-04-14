@@ -1,5 +1,6 @@
 import ContactMe from "@/components/ContactMe";
 import { siteConfig } from "@/config/site";
+import { localeItems } from "@/navigation";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 
@@ -9,11 +10,11 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="mt-16 pt-6 pb-2 flex flex-col items-center bg-black text-sm text-gray-400 border-t">
+      <div className="mt-16 flex flex-col items-center border-t bg-black pb-2 pt-6 text-sm text-gray-400">
         {/* <div className="mb-3 flex space-x-4">
           <ContactMe />
         </div> */}
-        <div className="mb-2 flex space-x-2 flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center space-x-2">
           {/* <Link href="https://weijunext.com/" target="_blank">
             J实验室
           </Link> */}
@@ -23,7 +24,7 @@ const Footer = () => {
           </Link> */}
 
           <Link
-            href="mailto:weijunext@gmail.com"
+            href="mailto:vivianswolford@gmail.com"
             target="_blank"
             rel="noopener norefferer nofollow"
             className="flex flex-col items-center justify-center"
@@ -36,6 +37,23 @@ const Footer = () => {
           </Link>
           {/* <div>{" • "}</div> */}
         </div>
+
+        <div className="mx-60 my-3 grid grid-cols-6 justify-items-center gap-3 text-center ">
+          {localeItems.map((value) => {
+            return (
+              <div key={value.code}>
+                <a
+                  href={value.code}
+                  hrefLang={value.code}
+                  className="mx-3 my-1 font-light text-white"
+                >
+                  {value.name}
+                </a>
+              </div>
+            );
+          })}
+        </div>
+
         <div className="mb-2 flex space-x-2">
           <div>{`©${currentYear}`}</div>{" "}
           <Link href={siteConfig.url}>{siteConfig.creator}</Link>{" "}

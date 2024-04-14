@@ -1,0 +1,20 @@
+{
+  "title_header": "AI ラップ歌詞ジェネレーター",
+  "title_website": "数秒でラップ曲の歌詞を生成",
+  "title_topic": "最大3つの主要なトピックを入力してください。これらはテーマ、概念、ストーリーなどです。",
+  "title_keyword": "曲に表示したい単語やフレーズを最大10個入力してください。",
+  "title_emotion": "曲の感情的な旅を表す最大3つの感情を入力してください。",
+  "title_content": "曲の内容を説明してください。",
+  "title_language_output": "出力言語を選択してください。",
+  "title_output": "希望する歌詞",
+  "button_generate": "歌詞を生成する",
+  "tip_topic": "新しいトピックを追加するにはEnterキーを押してください。",
+  "tip_keyword": "新しいキーワードを追加するにはEnterキーを押してください。",
+  "tip_emotion": "新しい感情を追加するにはEnterキーを押してください。",
+  "tip_content_error": "曲の内容を入力してください。",
+  "tip_toast_copied": "コピーされました",
+  "hint_topic": "トピックを入力してください。",
+  "hint_keyword": "キーワードを入力してください。",
+  "hint_emotion": "感情を入力してください。",
+  "hint_content": "たとえば、若者同士の愛についての歌"
+}

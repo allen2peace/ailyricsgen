@@ -1,0 +1,20 @@
+{
+  "title_header": "Générateur de Paroles de Rap par IA",
+  "title_website": "Générez les Paroles de Chansons de Rap en Quelques Secondes",
+  "title_topic": "Entrez jusqu'à 3 sujets principaux. Ceux-ci peuvent être des thèmes, des concepts et des histoires",
+  "title_keyword": "Entrez jusqu'à 10 mots ou phrases que vous souhaitez voir apparaître dans la chanson",
+  "title_emotion": "Entrez jusqu'à 3 émotions décrivant le parcours émotionnel de la chanson",
+  "title_content": "Décrivez ce que vous voulez que la chanson soit",
+  "title_language_output": "Sélectionnez la langue de sortie souhaitée",
+  "title_output": "Les paroles que vous voulez",
+  "button_generate": "Générer les Paroles",
+  "tip_topic": "appuyez sur Entrée pour ajouter de nouveaux Sujets",
+  "tip_keyword": "appuyez sur Entrée pour ajouter de nouveaux Mots-clés",
+  "tip_emotion": "appuyez sur Entrée pour ajouter de nouvelles Émotions",
+  "tip_content_error": "Veuillez saisir le contenu de la chanson",
+  "tip_toast_copied": "Copié",
+  "hint_topic": "entrez des sujets",
+  "hint_keyword": "entrez des mots-clés",
+  "hint_emotion": "entrez des émotions",
+  "hint_content": "par exemple, une chanson sur l'amour entre jeunes"
+}

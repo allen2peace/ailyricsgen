@@ -1,0 +1,20 @@
+{
+  "title_header": "Máy Tạo Lời Nhạc Rap Trí Tuệ Nhân Tạo",
+  "title_website": "Tạo Lời Bài Hát Rap trong vài Giây",
+  "title_topic": "Nhập tối đa 3 chủ đề chính. Những điều này có thể là các chủ đề, khái niệm và câu chuyện",
+  "title_keyword": "Nhập tối đa 10 từ hoặc cụm từ bạn muốn xuất hiện trong bài hát",
+  "title_emotion": "Nhập tối đa 3 cảm xúc mô tả hành trình cảm xúc của bài hát",
+  "title_content": "Mô tả về nội dung bạn muốn bài hát nói về",
+  "title_language_output": "Chọn ngôn ngữ bạn muốn đầu ra",
+  "title_output": "Lời bài hát bạn muốn",
+  "button_generate": "Tạo Lời Nhạc",
+  "tip_topic": "Nhấn Enter để thêm Chủ đề mới",
+  "tip_keyword": "Nhấn Enter để thêm từ khóa mới",
+  "tip_emotion": "Nhấn Enter để thêm cảm xúc mới",
+  "tip_content_error": "Vui lòng nhập nội dung của bài hát",
+  "tip_toast_copied": "Đã Sao chép",
+  "hint_topic": "Nhập chủ đề",
+  "hint_keyword": "Nhập từ khóa",
+  "hint_emotion": "Nhập cảm xúc",
+  "hint_content": "ví dụ, một bài hát về tình yêu giữa thanh niên"
+}
