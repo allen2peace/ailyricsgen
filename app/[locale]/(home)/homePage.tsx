@@ -147,8 +147,18 @@ export default function HomePage({
           <p className="text-sm font-semibold">Star on GitHub</p>
         </a>
       </div> */}
+
+      <head>
+        {/* 将 <link> 标签放在 <head> 标签内 */}
+        <link
+          rel="alternate"
+          href={locale}
+          hrefLang={locale}
+          className="mx-3 my-1 font-light text-white"
+        />
+      </head>
       <h1 className="my-5 text-4xl font-bold text-slate-900">
-        {t('title_website')}
+        {t("title_website")}
       </h1>
 
       {/* <p className="text-slate-500 my-5">
@@ -178,80 +188,70 @@ export default function HomePage({
 
       <div className="flex flex-col items-start justify-start">
         <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>
-            {t('title_topic')}
-          </div>
+          <div>{t("title_topic")}</div>
           <div className="mt-2 w-full">
             <TagsInput
               value={topicList}
               onChange={setTopicList}
               name="topic"
-              placeHolder={t('hint_topic')}
+              placeHolder={t("hint_topic")}
             />
           </div>
           <em className=" w-full text-center text-slate-400">
-          {t('tip_topic')}
+            {t("tip_topic")}
           </em>
         </div>
 
         <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>
-          {t('title_keyword')}
-          </div>
+          <div>{t("title_keyword")}</div>
           <div className="mt-2 w-full">
             <TagsInput
               value={keywordList}
               onChange={setKeywordList}
               name="keyword"
-              placeHolder={t('hint_keyword')}
+              placeHolder={t("hint_keyword")}
             />
           </div>
           <em className=" w-full text-center text-slate-400">
-          {t('tip_keyword')}
+            {t("tip_keyword")}
           </em>
         </div>
 
         <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>
-          {t('title_emotion')}
-          </div>
+          <div>{t("title_emotion")}</div>
           <div className="mt-2 w-full">
             <TagsInput
               value={emotionList}
               onChange={setEmotionList}
               name="emotion"
-              placeHolder={t('hint_emotion')}
+              placeHolder={t("hint_emotion")}
             />
           </div>
           <em className=" w-full text-center text-slate-400">
-          {t('tip_emotion')}
+            {t("tip_emotion")}
           </em>
         </div>
       </div>
       <form className="w-full max-w-xl" onSubmit={onSubmit}>
         <div className="mt-10 flex items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
-          <p className="text-left font-medium">
-          {t('title_content')}
-          </p>
+          <p className="text-left font-medium">{t("title_content")}</p>
         </div>
         <textarea
           value={content}
           onChange={handleInputChange}
           rows={4}
           className="mt-5 w-full rounded-md border border-gray-300 bg-white px-2 py-1 shadow-sm focus:border-black focus:ring-black"
-          placeholder={t('hint_content')}
+          placeholder={t("hint_content")}
         />
         {error && (
           <em className=" flex text-start text-red-500">
-            {t('tip_content_error')}
+            {t("tip_content_error")}
           </em>
         )}
         <div className="my-5 flex items-center space-x-3">
           <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
-          <p className="text-left font-medium">
-            {t('title_language_output')}
-          </p>
+          <p className="text-left font-medium">{t("title_language_output")}</p>
         </div>
         <div className="block">
           <DropDown
@@ -320,7 +320,7 @@ export default function HomePage({
               //     }
               //   </Link>
               // ) :
-              <span>{t('button_generate')} &rarr;</span>
+              <span>{t("button_generate")} &rarr;</span>
             )}
           </button>
         </>
@@ -346,7 +346,7 @@ export default function HomePage({
                 className="mx-auto text-3xl font-bold text-slate-900 sm:text-4xl"
                 ref={answerRef}
               >
-                {t('title_output')}
+                {t("title_output")}
               </h2>
             </div>
             <div className="mx-auto flex max-w-xl flex-col items-center justify-center space-y-8">
@@ -354,7 +354,7 @@ export default function HomePage({
                 className="cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100"
                 onClick={() => {
                   navigator.clipboard.writeText(answer);
-                  toast(t('tip_toast_copied'), {
+                  toast(t("tip_toast_copied"), {
                     icon: "✂️",
                   });
                 }}
