@@ -42,14 +42,14 @@ const Footer = () => {
           {localeItems.map((value) => {
             return (
               <div key={value.code}>
-                <Link
+                <link
                   rel ="alternate"
                   href={value.code}
                   hrefLang={value.code}
                   className="mx-3 my-1 font-light text-white"
                 >
                   {value.name}
-                </Link>
+                </link>
               </div>
             );
           })}
