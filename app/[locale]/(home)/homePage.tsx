@@ -14,6 +14,7 @@ import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { TagsInput } from "react-tag-input-component";
 import { useTranslations, useLocale } from "next-intl";
+import PageDesc from "@/components/PageDesc";
 
 interface HomePageProps {
   usage: number;
@@ -255,54 +256,8 @@ export default function HomePage({
         formAction={onSubmitSubject}
       /> */}
 
-      <div className="flex flex-col items-start justify-start">
-        <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>{t("title_topic")}</div>
-          <div className="mt-2 w-full">
-            <TagsInput
-              value={topicList}
-              onChange={setTopicList}
-              name="topic"
-              placeHolder={t("hint_topic")}
-            />
-          </div>
-          <em className=" w-full text-center text-slate-400">
-            {t("tip_topic")}
-          </em>
-        </div>
-
-        <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>{t("title_keyword")}</div>
-          <div className="mt-2 w-full">
-            <TagsInput
-              value={keywordList}
-              onChange={setKeywordList}
-              name="keyword"
-              placeHolder={t("hint_keyword")}
-            />
-          </div>
-          <em className=" w-full text-center text-slate-400">
-            {t("tip_keyword")}
-          </em>
-        </div>
-
-        <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>{t("title_emotion")}</div>
-          <div className="mt-2 w-full">
-            <TagsInput
-              value={emotionList}
-              onChange={setEmotionList}
-              name="emotion"
-              placeHolder={t("hint_emotion")}
-            />
-          </div>
-          <em className=" w-full text-center text-slate-400">
-            {t("tip_emotion")}
-          </em>
-        </div>
-      </div>
       <form className="w-full max-w-xl" onSubmit={onSubmit}>
-        <div className="mt-10 flex items-center space-x-3">
+        <div className="mt-5 flex items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
           <p className="text-left font-medium">{t("title_content")}</p>
         </div>
@@ -401,6 +356,53 @@ export default function HomePage({
         //   </Link>
         // )} */}
       </form>
+
+      <div className="mt-10 flex flex-col items-start justify-start">
+        <div className=" my-5 flex w-full flex-col items-start justify-start">
+          <div>{t("title_topic")}</div>
+          <div className="mt-2 w-full">
+            <TagsInput
+              value={topicList}
+              onChange={setTopicList}
+              name="topic"
+              placeHolder={t("hint_topic")}
+            />
+          </div>
+          <em className=" w-full text-center text-slate-400">
+            {t("tip_topic")}
+          </em>
+        </div>
+
+        <div className=" my-5 flex w-full flex-col items-start justify-start">
+          <div>{t("title_keyword")}</div>
+          <div className="mt-2 w-full">
+            <TagsInput
+              value={keywordList}
+              onChange={setKeywordList}
+              name="keyword"
+              placeHolder={t("hint_keyword")}
+            />
+          </div>
+          <em className=" w-full text-center text-slate-400">
+            {t("tip_keyword")}
+          </em>
+        </div>
+
+        <div className=" my-5 flex w-full flex-col items-start justify-start">
+          <div>{t("title_emotion")}</div>
+          <div className="mt-2 w-full">
+            <TagsInput
+              value={emotionList}
+              onChange={setEmotionList}
+              name="emotion"
+              placeHolder={t("hint_emotion")}
+            />
+          </div>
+          <em className=" w-full text-center text-slate-400">
+            {t("tip_emotion")}
+          </em>
+        </div>
+      </div>
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -437,6 +439,8 @@ export default function HomePage({
 
       {/* subscribe */}
       {/* <Subscribe user={user} /> */}
+
+      <PageDesc />
     </>
   );
 }
