@@ -42,7 +42,8 @@ const Footer = () => {
           {localeItems.map((value) => {
             return (
               <div key={value.code}>
-                <a
+                <Link
+                  key={value.code}
                   rel ="alternate"
                   href={value.code}
                   hrefLang={value.code}
