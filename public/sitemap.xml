@@ -2,7 +2,6 @@
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xhtml="http://www.w3.org/1999/xhtml"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
@@ -10,74 +9,62 @@
 
 <url>
   <loc>https://www.ailyricsgen.com/</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>1.00</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.ailyricsgen.com/"/>
-  <xhtml:link rel="alternate" hreflang="fr" href="https://www.ailyricsgen.com/fr"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.ailyricsgen.com/es"/>
-  <xhtml:link rel="alternate" hreflang="de" href="https://www.ailyricsgen.com/de"/>
-  <xhtml:link rel="alternate" hreflang="it" href="https://www.ailyricsgen.com/it"/>
-  <xhtml:link rel="alternate" hreflang="pt" href="https://www.ailyricsgen.com/pt"/>
-  <xhtml:link rel="alternate" hreflang="ru" href="https://www.ailyricsgen.com/ru"/>
-  <xhtml:link rel="alternate" hreflang="hi" href="https://www.ailyricsgen.com/hi"/>
-  <xhtml:link rel="alternate" hreflang="vi" href="https://www.ailyricsgen.com/vi"/>
-  <xhtml:link rel="alternate" hreflang="ko" href="https://www.ailyricsgen.com/ko"/>
-  <xhtml:link rel="alternate" hreflang="zh" href="https://www.ailyricsgen.com/zh"/>
-  <xhtml:link rel="alternate" hreflang="ja" href="https://www.ailyricsgen.com/ja"/>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/es</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/fr</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/de</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/it</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/pt</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/ru</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/hi</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/vi</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/ko</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/ja</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ailyricsgen.com/zh</loc>
-  <lastmod>2024-04-15T03:49:28+00:00</lastmod>
+  <lastmod>2024-04-15T05:07:50+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

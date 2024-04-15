@@ -152,9 +152,78 @@ export default function HomePage({
         {/* 将 <link> 标签放在 <head> 标签内 */}
         <link
           rel="alternate"
-          href={locale}
-          hrefLang={locale}
-          className="mx-3 my-1 font-light text-white"
+          hrefLang="x-default"
+          href="https://www.ailyricsgen.com/"
+        />
+        <link
+          rel="alternate"
+          hrefLang="zh-CN"
+          href="https://www.ailyricsgen.com/zh"
+        />
+        <link
+          rel="alternate"
+          hrefLang="ko-KR"
+          href="https://www.ailyricsgen.com/ko"
+        />
+        <link
+          rel="alternate"
+          hrefLang="ja-JP"
+          href="https://www.ailyricsgen.com/ja"
+        />
+        <link
+          rel="alternate"
+          hrefLang="pt-PT"
+          href="https://www.ailyricsgen.com/pt"
+        />
+        <link
+          rel="alternate"
+          hrefLang="es-ES"
+          href="https://www.ailyricsgen.com/es"
+        />
+        <link
+          rel="alternate"
+          hrefLang="de-DE"
+          href="https://www.ailyricsgen.com/de"
+        />
+        <link
+          rel="alternate"
+          hrefLang="fr-FR"
+          href="https://www.ailyricsgen.com/fr"
+        />
+        <link
+          rel="alternate"
+          hrefLang="vi-VN"
+          href="https://www.ailyricsgen.com/vi"
+        />
+        <link
+          rel="canonical"
+          hrefLang="en-US"
+          href="https://www.ailyricsgen.com/"
+        />
+        <link
+          rel="alternate"
+          hrefLang="it-IT"
+          href="https://www.ailyricsgen.com/it"
+        />
+        <link
+          rel="alternate"
+          hrefLang="pt-PT"
+          href="https://www.ailyricsgen.com/pt"
+        />
+        <link
+          rel="alternate"
+          hrefLang="ru-RU"
+          href="https://www.ailyricsgen.com/ru"
+        />
+        <link
+          rel="alternate"
+          hrefLang="hi-IN"
+          href="https://www.ailyricsgen.com/hi"
+        />
+        <link
+          rel="alternate"
+          hrefLang="vi-VN"
+          href="https://www.ailyricsgen.com/vi"
         />
       </head>
       <h1 className="my-5 text-4xl font-bold text-slate-900">
