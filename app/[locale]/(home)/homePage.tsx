@@ -284,6 +284,52 @@ export default function HomePage({
           />
         </div>
 
+        <div className="mt-5 flex flex-col items-start justify-start">
+          <div className=" my-5 flex w-full flex-col items-start justify-start text-start">
+            <div>{t("title_topic")}</div>
+            <div className="mt-2 w-full">
+              <TagsInput
+                value={topicList}
+                onChange={setTopicList}
+                name="topic"
+                placeHolder={t("hint_topic")}
+              />
+            </div>
+            <em className=" w-full text-center text-slate-400">
+              {t("tip_topic")}
+            </em>
+          </div>
+
+          <div className=" my-5 flex w-full flex-col items-start justify-start">
+            <div>{t("title_keyword")}</div>
+            <div className="mt-2 w-full">
+              <TagsInput
+                value={keywordList}
+                onChange={setKeywordList}
+                name="keyword"
+                placeHolder={t("hint_keyword")}
+              />
+            </div>
+            <em className=" w-full text-center text-slate-400">
+              {t("tip_keyword")}
+            </em>
+          </div>
+
+          <div className=" my-5 flex w-full flex-col items-start justify-start">
+            <div>{t("title_emotion")}</div>
+            <div className="mt-2 w-full">
+              <TagsInput
+                value={emotionList}
+                onChange={setEmotionList}
+                name="emotion"
+                placeHolder={t("hint_emotion")}
+              />
+            </div>
+            <em className=" w-full text-center text-slate-400">
+              {t("tip_emotion")}
+            </em>
+          </div>
+        </div>
         {/* {user ? ( */}
         <>
           <div className="mb-2 mt-6 text-left text-sm text-gray-500">
@@ -357,52 +403,6 @@ export default function HomePage({
         // )} */}
       </form>
 
-      <div className="mt-10 flex flex-col items-start justify-start">
-        <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>{t("title_topic")}</div>
-          <div className="mt-2 w-full">
-            <TagsInput
-              value={topicList}
-              onChange={setTopicList}
-              name="topic"
-              placeHolder={t("hint_topic")}
-            />
-          </div>
-          <em className=" w-full text-center text-slate-400">
-            {t("tip_topic")}
-          </em>
-        </div>
-
-        <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>{t("title_keyword")}</div>
-          <div className="mt-2 w-full">
-            <TagsInput
-              value={keywordList}
-              onChange={setKeywordList}
-              name="keyword"
-              placeHolder={t("hint_keyword")}
-            />
-          </div>
-          <em className=" w-full text-center text-slate-400">
-            {t("tip_keyword")}
-          </em>
-        </div>
-
-        <div className=" my-5 flex w-full flex-col items-start justify-start">
-          <div>{t("title_emotion")}</div>
-          <div className="mt-2 w-full">
-            <TagsInput
-              value={emotionList}
-              onChange={setEmotionList}
-              name="emotion"
-              placeHolder={t("hint_emotion")}
-            />
-          </div>
-          <em className=" w-full text-center text-slate-400">
-            {t("tip_emotion")}
-          </em>
-        </div>
-      </div>
       <Toaster
         position="top-center"
         reverseOrder={false}
