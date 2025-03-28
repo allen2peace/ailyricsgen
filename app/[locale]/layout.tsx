@@ -62,6 +62,11 @@ export default function RootLayout(props: Props) {
       <NextIntlClientProvider locale={locale} messages={messages}>
         <head>
           <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="c9f3261b-f59c-4ef2-ae31-57c47d59cfd6"
+          ></script>
+          <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9625126052904435"
             crossOrigin="anonymous"
