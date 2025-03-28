@@ -1,6 +1,6 @@
 import { ONE_DAY, getSinglePayOrderKey } from "@/lib/constants";
 import { client } from "@/lib/lemonsqueezy/lemons";
-import prisma from "@/lib/prisma";
+// import prisma from "@/lib/prisma";
 import redis from "@/lib/redis";
 import { boostPack } from "@/lib/upgrade/upgrade";
 import { clearTodayUsage } from "@/lib/usage/usage";
@@ -40,11 +40,11 @@ export async function POST(request: Request) {
   if (!userId) {
     return NextResponse.json({ message: "No userId provided" }, { status: 403 });
   }
-  const user = await prisma.user.findUnique({
-    where: { userId: userId.toString() },
-    select: { userId: true, email: true, username: true },
-  });
-  if (!user) return NextResponse.json({ message: "Your account was not found" }, { status: 401 });
+  // const user = await prisma.user.findUnique({
+  //   where: { userId: userId.toString() },
+  //   select: { userId: true, email: true, username: true },
+  // });
+  // if (!user) return NextResponse.json({ message: "Your account was not found" }, { status: 401 });
 
   const first_order_item = payload.data.attributes.first_order_item || null
 
@@ -110,42 +110,42 @@ const subscriptionDeal = async (payload: any, userId: string) => {
 
     switch (payload.meta.event_name) {
       case "subscription_created": {
-        const subscription = await client.retrieveSubscription({ id: payload.data.id });
-        // 订阅 subscription
-        await prisma.user.update({
-          where: { userId },
-          data: {
-            subscriptionId: `${subscription.data.id}`,
-            customerId: `${payload.data.attributes.customer_id}`,
-            variantId: subscription.data.attributes.variant_id,
-            currentPeriodEnd: dayjs(subscription.data.attributes.renews_at).unix(),
-          },
-        });
-        // 重置今天的积分
-        // Reset today's points
-        clearTodayUsage({ userId })
+        // const subscription = await client.retrieveSubscription({ id: payload.data.id });
+        // // 订阅 subscription
+        // await prisma.user.update({
+        //   where: { userId },
+        //   data: {
+        //     subscriptionId: `${subscription.data.id}`,
+        //     customerId: `${payload.data.attributes.customer_id}`,
+        //     variantId: subscription.data.attributes.variant_id,
+        //     currentPeriodEnd: dayjs(subscription.data.attributes.renews_at).unix(),
+        //   },
+        // });
+        // // 重置今天的积分
+        // // Reset today's points
+        // clearTodayUsage({ userId })
         return NextResponse.json({ status: 200 });
       }
 
       case "subscription_updated": {
-        const subscription = await client.retrieveSubscription({ id: payload.data.id });
-        // 订阅 subscription
-        const user = await prisma.user.findUnique({
-          where: { userId, subscriptionId: `${subscription.data.id}` },
-          select: { subscriptionId: true },
-        });
-        if (!user || !user.subscriptionId) return NextResponse.json({ message: 'userId or subscriptionId not found' }, { status: 400 });;
+        // const subscription = await client.retrieveSubscription({ id: payload.data.id });
+        // // 订阅 subscription
+        // const user = await prisma.user.findUnique({
+        //   where: { userId, subscriptionId: `${subscription.data.id}` },
+        //   select: { subscriptionId: true },
+        // });
+        // if (!user || !user.subscriptionId) return NextResponse.json({ message: 'userId or subscriptionId not found' }, { status: 400 });;
 
-        await prisma.user.update({
-          where: { userId, subscriptionId: user.subscriptionId },
-          data: {
-            variantId: subscription.data.attributes.variant_id,
-            currentPeriodEnd: dayjs(subscription.data.attributes.renews_at).unix(),
-          },
-        });
-        // 重置今天的积分
-        // Reset today's points
-        clearTodayUsage({ userId })
+        // await prisma.user.update({
+        //   where: { userId, subscriptionId: user.subscriptionId },
+        //   data: {
+        //     variantId: subscription.data.attributes.variant_id,
+        //     currentPeriodEnd: dayjs(subscription.data.attributes.renews_at).unix(),
+        //   },
+        // });
+        // // 重置今天的积分
+        // // Reset today's points
+        // clearTodayUsage({ userId })
         return NextResponse.json({ status: 200 });
       }
 

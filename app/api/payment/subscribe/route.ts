@@ -1,7 +1,6 @@
 import { axios } from "@/lib/axios";
 import { MEMBERSHIP_ROLE_VALUE, VARIANT_IDS_BY_TYPE } from "@/lib/constants";
 import { getUserSubscriptionPlan } from "@/lib/lemonsqueezy/subscription";
-import prisma from "@/lib/prisma";
 import { unauthorizedResponse } from "@/lib/response/responseUtils";
 import { verifyReferer, verifyToken } from "@/lib/verifyUtils/verifyUtils";
 import { UpgradeType, } from "@/types/subscribe";
@@ -31,35 +30,35 @@ export async function POST(request: Request) {
       return unauthorizedResponse("Your account was not found");
     }
 
-    const user = await prisma.user.findUnique({
-      where: { userId: userId.toString() },
-      select: { userId: true, email: true, username: true },
-    });
+    // const user = await prisma.user.findUnique({
+    //   where: { userId: userId.toString() },
+    //   select: { userId: true, email: true, username: true },
+    // });
 
-    if (!user) return NextResponse.json({ message: "user not found" }, { status: 401 });
+    // if (!user) return NextResponse.json({ message: "user not found" }, { status: 401 });
 
-    const checkout = (await axios.post(
-      `${process.env.LEMON_SQUEEZY_HOST}/checkouts`,
-      {
-        data: {
-          type: "checkouts",
-          attributes: { checkout_data: { custom: { email: user.email, userId: user.userId, username: user.username, type } } },
-          relationships: {
-            store: { data: { type: "stores", id: process.env.LEMON_SQUEEZY_STORE_ID } },
-            variant: { data: { type: "variants", id: variantId.toString() } },
-          },
-        },
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.LEMON_SQUEEZY_API_KEY}`,
-          Accept: 'application/vnd.api+json',
-          'Content-Type': 'application/vnd.api+json'
-        }
-      }
-    )) as CreateCheckoutResult;
+    // const checkout = (await axios.post(
+    //   `${process.env.LEMON_SQUEEZY_HOST}/checkouts`,
+    //   {
+    //     data: {
+    //       type: "checkouts",
+    //       attributes: { checkout_data: { custom: { email: user.email, userId: user.userId, username: user.username, type } } },
+    //       relationships: {
+    //         store: { data: { type: "stores", id: process.env.LEMON_SQUEEZY_STORE_ID } },
+    //         variant: { data: { type: "variants", id: variantId.toString() } },
+    //       },
+    //     },
+    //   },
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.LEMON_SQUEEZY_API_KEY}`,
+    //       Accept: 'application/vnd.api+json',
+    //       'Content-Type': 'application/vnd.api+json'
+    //     }
+    //   }
+    // )) as CreateCheckoutResult;
 
-    return NextResponse.json({ checkoutURL: checkout.data.attributes.url }, { status: 200 });
+    return NextResponse.json({ checkoutURL: "https://www.baidu.com" }, { status: 200 });
   } catch (error: any) {
     console.error('POST request failed:', error);
     return NextResponse.json({

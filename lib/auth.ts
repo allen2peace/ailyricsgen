@@ -1,6 +1,6 @@
 import { ONE_DAY } from "@/lib/constants";
 import { getUserSubscriptionStatus } from "@/lib/lemonsqueezy/subscriptionFromStorage";
-import prisma from "@/lib/prisma";
+// import prisma from "@/lib/prisma";
 import { UserInfo } from "@/types/user";
 import { Account, NextAuthOptions, TokenSet } from "next-auth";
 import { JWT } from "next-auth/jwt";
@@ -50,22 +50,22 @@ export const authOptions: NextAuthOptions = {
         // 用户信息存入数据库
         // Save user information in the database
         const userInfo = await upsertUserAndGetInfo(token, account);
-        if (!userInfo || !userInfo.userId) {
-          throw new Error('User information could not be saved or retrieved.');
-        }
+        // if (!userInfo || !userInfo.userId) {
+        //   throw new Error('User information could not be saved or retrieved.');
+        // }
 
-        const planRes = await getUserSubscriptionStatus({ userId: userInfo.userId, defaultUser: userInfo })
-        const fullUserInfo = {
-          userId: userInfo.userId,
-          username: userInfo.username,
-          avatar: userInfo.avatar,
-          email: userInfo.email,
-          platform: userInfo.platform,
-          role: planRes.role,
-          membershipExpire: planRes.membershipExpire,
-          accessToken: account.access_token
-        }
-        return fullUserInfo
+        const planRes = await getUserSubscriptionStatus({ userId: "" })
+        // const fullUserInfo = {
+        //   userId: userInfo.userId,
+        //   username: userInfo.username,
+        //   avatar: userInfo.avatar,
+        //   email: userInfo.email,
+        //   platform: userInfo.platform,
+        //   role: planRes.role,
+        //   membershipExpire: planRes.membershipExpire,
+        //   accessToken: account.access_token
+        // }
+        return null
       }
       return token as any
     },
@@ -85,12 +85,12 @@ async function storeAccessToken(accessToken: string, sub?: string) {
 }
 async function upsertUserAndGetInfo(token: JWT, account: Account) {
   const user = await upsertUser(token, account.provider);
-  if (!user || !user.userId) return null;
+  // if (!user || !user.userId) return null;
 
-  const subscriptionStatus = await getUserSubscriptionStatus({ userId: user.userId, defaultUser: user });
+  const subscriptionStatus = await getUserSubscriptionStatus({ userId: "", });
 
   return {
-    ...user,
+    // ...user,
     role: subscriptionStatus.role,
     membershipExpire: subscriptionStatus.membershipExpire,
   };
@@ -104,13 +104,13 @@ async function upsertUser(token: JWT, provider: string) {
     platform: provider,
   };
 
-  const user = await prisma.user.upsert({
-    where: { userId: token.sub },
-    update: userData,
-    create: { ...userData, role: 0 },
-  });
+  // const user = await prisma.user.upsert({
+  //   where: { userId: token.sub },
+  //   update: userData,
+  //   create: { ...userData, role: 0 },
+  // });
 
-  return user || null;
+  return null;
 }
 async function getSessionUser(token: ExtendedToken): Promise<UserInfo> {
   const planRes = await getUserSubscriptionStatus({ userId: token.userId as string });
