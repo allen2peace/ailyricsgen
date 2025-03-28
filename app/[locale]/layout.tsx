@@ -60,7 +60,13 @@ export default function RootLayout(props: Props) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <head />
+        <head>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9625126052904435"
+            crossorigin="anonymous"
+          ></script>
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -70,7 +76,7 @@ export default function RootLayout(props: Props) {
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <NextAuthProvider>
-              <Header  />
+              <Header />
               <div className="max-full mx-auto flex min-h-screen flex-col justify-center py-0">
                 <main className="mt-20 flex flex-1 justify-center">
                   {children}
