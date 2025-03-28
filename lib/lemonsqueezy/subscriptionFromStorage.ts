@@ -24,16 +24,14 @@ export async function getUserSubscriptionStatus({ userId, defaultUser }: { userI
 
   if (!user) throw new Error("User not found");
 
-  const membershipExpire = (user.currentPeriodEnd || 0) * 1000 // 13-digit timestamp or non-member
-  const isMembership =
-    user.variantId &&
-    membershipExpire > Date.now().valueOf();
+  const membershipExpire = 1233445567678
+  const isMembership = true
 
   return {
-    subscriptionId: user.subscriptionId,
+    subscriptionId: "",
     membershipExpire: isMembership ? membershipExpire : 0,
-    customerId: user.customerId,
-    variantId: user.variantId,
+    customerId: "",
+    variantId: 0,
     role: isMembership ? MEMBERSHIP_ROLE_VALUE : 0, // 2 : 0
   } as SubScriptionInfo;
 }

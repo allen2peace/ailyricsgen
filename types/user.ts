@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+// import { User } from "@prisma/client";
 
 export type Role = 0 | 2; // 0 Standard User; 2 Member User
 
@@ -24,4 +24,4 @@ export interface UserInfo {
   accessToken?: string;
 }
 
-export interface PrismaUser extends User { }
+export interface PrismaUser { }
